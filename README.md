@@ -1,7 +1,19 @@
 # Distributed Systems
 Distributed Systems Project
-Final Grade: 17.3
-Author: Ricardo Rodrigues 66257
+Final Grade: 17.3 (GPA of part 1 and 2)
+Author: Ricardo Rodrigues (rf-rodrigues95)
+
+# TuKano - Part 1
+## Overview
+TuKano is a distributed social media platform inspired by TikTok, designed and implemented as part of the Distributed Systems course. The system is structured around three core services — Users, Shorts, and Blobs — each running independently and communicating over the network. These services expose RESTful APIs using JAX-RS, and gRPC, to allow client interactions and inter-service coordination. The architecture supports decentralized operation through multicast-based service discovery, removing any reliance on hardcoded IPs and enabling dynamic server detection on the local network.
+
+Auto-configuration of servers is implemented through IP multicast broadcasts, where each server periodically advertises its service type and URI, enabling runtime discovery both by clients and the testing suite. Fault tolerance was deliberately scoped to handle transient communication failures, not full component replication or crash recovery, in line with the project’s constraints.
+
+
+## Microservices Integration with Docker, Concurrency Control, and gRPC Support
+
+The entire system was containerized using Docker, and integration with a standardized test suite was supported through a configuration script and Maven-based builds. Additional value was added through concurrency control, ensuring that operations across all services behave correctly under concurrent access, as verified by stress tests included in the official tester. Optional gRPC interfaces were also integrated to extend interoperability, allowing mixed REST and gRPC deployments.
+
 
 2 Separate Versions, tp1 and tp2.
 
