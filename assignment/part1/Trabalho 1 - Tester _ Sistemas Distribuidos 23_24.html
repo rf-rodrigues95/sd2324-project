@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://preguica.github.io/sd2324/praticas2324/trab1/tester -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Trabalho 1 - Tester | Sistemas Distribuidos 23/24</title>
+<meta name="generator" content="Jekyll v3.9.5">
+<meta property="og:title" content="Trabalho 1 - Tester">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Sistemas Distribuidos 23/24">
+<meta property="og:description" content="Sistemas Distribuidos 23/24">
+<link rel="canonical" href="https://preguica.github.io/sd2324/praticas2324/trab1/tester.html">
+<meta property="og:url" content="https://preguica.github.io/sd2324/praticas2324/trab1/tester.html">
+<meta property="og:site_name" content="Sistemas Distribuidos 23/24">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Trabalho 1 - Tester">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Sistemas Distribuidos 23/24","headline":"Trabalho 1 - Tester","url":"https://preguica.github.io/sd2324/praticas2324/trab1/tester.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="./Trabalho 1 - Tester _ Sistemas Distribuidos 23_24_files/style.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <table>
+          <tbody><tr width="auto">
+        <td>
+        <h1><a href="https://preguica.github.io/sd2324/">Sistemas Distribuidos 23/24</a></h1>
+        </td><td width="160pt"> <img src="./Trabalho 1 - Tester _ Sistemas Distribuidos 23_24_files/nova.png" width="150" alt="Logo">
+          </td>
+          </tr>
+        </tbody></table>
+
+        <p class="view"><a href="https://preguica.github.io/sd2324/index">Início</a> |
+        <a href="https://preguica.github.io/sd2324/contactos">Contactos</a> |
+        <a href="https://preguica.github.io/sd2324/teoricas2324/index">Teóricas</a> |
+        <a href="https://preguica.github.io/sd2324/praticas2324/index">Práticas</a> |
+        <a href="https://preguica.github.io/sd2324/plano">Plano de aulas</a> |
+        <a href="https://preguica.github.io/sd2324/praticas2324/trab1/tester">Discord</a>
+        </p>
+
+
+
+      </header>
+      <section>
+
+      <h2 id="trabalho-1---tester">Trabalho 1 - <em>Tester</em></h2>
+
+<p>O <em>Tester</em> tem como objetivo permitir o teste do trabalho prático 1, de forma sistemática e uniforme para todos os grupos.
+Os alunos poderão testar a correção da sua implementação, usando o <em>Tester</em>.</p>
+
+<p>Para executar o tester, os alunos com sistemas operativos Linux ou MacOS devem usar o script 
+<a href="https://raw.githubusercontent.com/preguica/sd2324-proj-api/main/test-sd-tp1.sh">test-sd-tp1.sh</a>,
+enquanto que os alunos com Windows devem usar o script <a href="https://raw.githubusercontent.com/preguica/sd2324-proj-api/main/test-sd-tp1.bat">test-sd-tp1.bat</a>.</p>
+
+<p><strong>Nota</strong>: Todos os ficheiros mencionados estão dispopíveis em:
+<a href="https://github.com/preguica/sd2324-proj-api">https://github.com/preguica/sd2324-proj-api</a>.</p>
+
+<h3 id="preparação">Preparação</h3>
+<p>Antes de executar o tester e criar a imagem docker, devem adicionar e atualizar o 
+fichero <a href="https://github.com/preguica/sd2324-proj-api/blob/main/shorts.props">shorts.props</a> 
+na raiz do vosso projeto com a informação correta:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USERS_REST_SERVER_MAINCLASS=classe do servidor Users REST (e.g. sd2324.tp1.server.RESTUsersServer)
+USERS_REST_PORT=porto do servidor Users REST (e.g. 8080)
+USERS_REST_EXTRA_ARGS=parâmetro adicional a passar ao servidor Users REST, se algum
+SHORTS_REST_SERVER_MAINCLASS=classe do servidor Shorts REST 
+SHORTS_REST_PORT=porto do servidor Shorts REST
+SHORTS_REST_EXTRA_ARGS=parâmetro adicional a passar ao servidor Shorts REST, se algum
+BLOBS_REST_SERVER_MAINCLASS=classe do servidor Blobs REST 
+BLOBS_REST_PORT=porto do servidor Blobs REST
+BLOBS_REST_EXTRA_ARGS=parâmetro adicional a passar ao servidor Blobs REST, se algum
+USERS_GRPC_SERVER_MAINCLASS=classe do servidor Users GPRC 
+USERS_GRPC_PORT=porto do servidor Users GRPC
+USERS_GRPC_EXTRA_ARGS=parâmetro adicional a passar ao servidor Users GRPC, se algum
+SHORTS_GRPC_SERVER_MAINCLASS=classe do servidor Shorts GRPC 
+SHORTS_GRPC_PORT=porto do servidor Shorts GRPC
+SHORTS_GRPC_EXTRA_ARGS=parâmetro adicional a passar ao servidor Shorts GRPC, se algum
+BLOBS_GRPC_SERVER_MAINCLASS=classe do servidor Bblobs GRPC 
+BLOBS_GRPC_PORT=porto do servidor Blobs GRPC
+BLOBS_GRPC_EXTRA_ARGS=parâmetro adicional a passar ao servidor Blobs GRPC, se algum
+DISCOVERY_MULTICAST_IP=endereço multicast para descoberta (e.g. 226.226.226.226)
+DISCOVERY_MULTICAST_PORT=porto para descoberta (e.g. 2266)
+</code></pre></div></div>
+
+<p>Enquanto não tiverem a parte GRPC implementada, devem deixar as propriedades respetivas sem nenhum valor, mas não as devem apagar.
+Podem igualmente testar o servidor Users sem terem os servidores Shorts e Blobs funcionais, deixando as respetivas propriedades sem
+nenhum valor.</p>
+
+<p>Devem usar o ficheiro <strong>Dockerfile</strong> presente no repositório das interfaces,
+presente no seguinte link: <a href="https://raw.githubusercontent.com/preguica/sd2324-proj-api/main/Dockerfile">Dockerfile</a>, 
+o qual necessita do ficheiro de configuração do Hibernate 
+<a href="https://raw.githubusercontent.com/preguica/sd2324-proj-api/main/hibernate.cfg.xml">hibernate.cfg.xml</a>.</p>
+
+<p>Sugere-se que usem o ficheiro <a href="https://raw.githubusercontent.com/preguica/sd2324-proj-api/main/pom.xml">pom.xml</a> que se encontra no repositório.</p>
+
+<p><strong>Sempre que alterarem o vosso trabalho (incluindo o ficheiro shorts.props)</strong> devem criar 
+uma nova imagem Docker do vosso trabalho (usando o projeto Maven disponibilizado, 
+tal consiste em executar: <code class="language-plaintext highlighter-rouge">mvn clean compile assembly:single docker:build</code>).
+<strong>NOTA:</strong> Em algumas versões do Docker, o docker:build pode não funcionar. Nesse caso, devem criar
+a imagem usando os seguintes comandos:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn clean compile assembly:single
+docker build -t sd2324-trab1-XXXX-YYYY .
+</code></pre></div></div>
+
+<h3 id="execução-dos-testes">Execução dos testes</h3>
+
+<p>Para executar o <em>Tester</em>, basta executar o seguinte comando, 
+usando o nome da imagem do vosso trabalho (<strong>substituir sd2223-trab1-xxxxx-yyyyy pelo 
+nome da vossa imagem</strong>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Linux / MacOS
+sh test-sd-tp1.sh -image sd2324-trab1-xxxxx-yyyyy
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Windows
+test-sd-tp1.bat -image sd2324-trab1-xxxxx-yyyyy
+</code></pre></div></div>
+<p><em>NOTA:</em> há uma secção sobre problemas com a execução deste comando mais tarde neste documento.</p>
+
+<p>O <em>Tester</em>, ao executar, corre uma série de passos, indicando genericamente 
+as verificações que está a efetuar. 
+Caso os testes de cada fase corram corretamente, no fim de cada fase 
+aparece a mensagem OK.</p>
+
+<p>Exemplo de uma execução correta (truncada):</p>
+
+<p><img src="./Trabalho 1 - Tester _ Sistemas Distribuidos 23_24_files/tester-runok.png" alt="Imagem de execução correta"></p>
+
+<p>Caso um teste falhe, apresenta informação de qual o erro que ocorreu, indicando o resultado recebido do vosso trabalho e qual o resultado esperado. Adicionalmente, serão apresentadas as menssagens escritas pelo vosso programa para o output.</p>
+
+<p>Exemplo de uma execução com um erro (em que se pode ver que se esperaria o código 403 e se recebeu o código 404 na execução dum DeleteUser):</p>
+
+<p><img src="./Trabalho 1 - Tester _ Sistemas Distribuidos 23_24_files/tester-runerror.png" alt="Imagem de execução com erro"></p>
+
+<h3 id="outras-opções-do-tester">Outras opções do <em>Tester</em></h3>
+
+<p>O <em>Tester</em> possui algumas opções que podem ser especificadas ao corrê-lo, que modificam o seu comportamento.</p>
+
+<ul>
+  <li>
+    <p><strong>-test &lt;num&gt;</strong> : Permite omitir a execução de alguns testes. 
+Por exemplo, se passarem o valor <strong>-test 2b</strong>, os testes começarão no 
+teste 2b. Esta opção é útil quando já verificaram que o vosso trabalho 
+funciona corretamente até um dado teste e estão a corrigir erros num 
+teste específico.</p>
+  </li>
+  <li>
+    <p><strong>-sleep &lt;seconds&gt;</strong> : Permite diminuir o tempo de espera entre serem 
+lançadas os containers com o vosso trabalho e iniciar a execução dos 
+testes. Podem ajustar este valor consoante a capacidade do vosso 
+computador e as operações que estejam a fazer na fase de inicialização.</p>
+  </li>
+  <li>
+    <p><strong>-log OFF|ALL|FINE|FINEST</strong> : Permite controlar o nível de mensagens 
+gerado pelo programa. Por exemplo, ao usarem a opção <strong>-log FINE</strong>, o 
+programa vai indicar todas as operações que está a fazer ao vosso sistema, 
+indicando as mensagens recebidas e as esperadas, como se apresenta na 
+imagem seguinte:</p>
+  </li>
+  <li>
+    <p><strong>-textsize &lt;len&gt;</strong> : Permite indicar a dimensão máxoma do texto das 
+mensagens criadas.</p>
+  </li>
+</ul>
+
+<p><img src="./Trabalho 1 - Tester _ Sistemas Distribuidos 23_24_files/tester-rundetail.png" alt="Imagen com debug a FINE"></p>
+
+<h3 id="problemas-com-o-script">Problemas com o script</h3>
+
+<p>Dicas sobre execução no Windows a adicionar brevemente, no entanto se não conseguirem usar o script fornecido num terminal, podem executar o Tester manualmente com o seguinte conjunto de comandos:</p>
+
+<p>Para criar a rede – a executar uma vez, ou quando a rede <em>sdnet</em> tiver sido removida (por exemplo pelo docker system prune):</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker network create -d bridge sdnet 
+</code></pre></div></div>
+
+<p>Para atualizar a imagem – a executar sempre que o <em>Tester</em> for atualizado:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull nunopreguica/sd2223-tester-tp1
+</code></pre></div></div>
+
+<p>Para executar o <em>Tester</em> (notem que podem ter de fazer scroll na linha abaixo):</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run --rm --network=sdnet -it -v /var/run/docker.sock:/var/run/docker.sock nunopreguica/sd2223-tester-tp1:latest -image sd2122-trab1-xxxxx-yyyyy
+</code></pre></div></div>
+
+<p>Quem tenha problemas a correr o <em>Tester</em>, deve 
+fazer um post no <a href="https://discord.com/channels/1085739486492753981/1085739993248583790">Discord</a>, 
+com a seguinte informação: dump da mensagem de erro, sistema de operação e versão do 
+docker que estão a usar. 
+Caso já exista uma mensagem semelhante, façam reply a essa mensagem.</p>
+
+<h3 id="códigos-de-erro">Códigos de erro</h3>
+
+<p>Os códigos de erro que os vossos servidores devolvem devem estar de acordo
+com os comentários das respetivas interfaces, disponíveis em: <a href="https://github.com/preguica/sd2324-proj-api">https://github.com/preguica/sd2324-proj-api</a>.</p>
+
+<h3 id="versões">Versões</h3>
+
+<p>As versões do <em>Tester</em> são incrementais, i.e., a versão N do <em>Tester</em> executará todos os testes das versões anteriores.
+Nesta secção indicam-se as funcionalidades testadas por cada versão.</p>
+
+<h4 id="versão-1">Versão 1</h4>
+<p>Testa as seguintes funcionalidades (REST):</p>
+<ul>
+  <li>criação e leitura de utilizadores (2a)</li>
+  <li>atualização de utilizadores (2b)</li>
+  <li>remoção de utilizadores (2c)</li>
+  <li>pesquisa de utilizadores (2d)</li>
+</ul>
+
+<h4 id="versão-3">Versão 3</h4>
+<p>Testa as seguintes funcionalidades (REST):</p>
+<ul>
+  <li>Anúnicos com discovery (3a)</li>
+  <li>Shorts only: create, get (4a)</li>
+  <li>Shorts only: create, get, get feed, follow/unfollow (4b)</li>
+  <li>Shorts only: create, get, get feed, follow/unfollow, delete (4c)</li>
+  <li>Shorts only:create, get, get feed, follow/unfollow, like/unlike, delete (4d)</li>
+  <li>Shorts+Blobs: create, get (5a)</li>
+  <li>Shorts+Blobs: create, get, get feed, follow/unfollow (5b)</li>
+  <li>Shorts+Blobs: create, get, get feed, follow/unfollow, delete (5c)</li>
+  <li>Shorts+Blobs:create, get, get feed, follow/unfollow, like/unlike, delete (5d)</li>
+</ul>
+
+<h4 id="versão-4">Versão 4</h4>
+<p>Testa as seguintes funcionalidades com dois servidores de blobs(REST):</p>
+<ul>
+  <li>Shorts+Blobs: create, get (6a)</li>
+  <li>Shorts+Blobs:create, get, get feed, follow/unfollow, like/unlike, delete (6b)</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades (REST):</p>
+<ul>
+  <li>Testa se bloquador de rede funciona (7a)</li>
+  <li>Shorts+Blobs com falhas para o users: create, get, get feed, follow/unfollow (7b)</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades (GRPC):</p>
+<ul>
+  <li>criação e leitura de utilizadores (9a)</li>
+  <li>atualização de utilizadores (9b)</li>
+  <li>remoção de utilizadores (9c)</li>
+  <li>pesquisa de utilizadores (9d)</li>
+  <li>Shorts only: create, get (10a)</li>
+  <li>Shorts+Blobs: create, get (10b)</li>
+  <li>Shorts+Blobs: create, get, get feed, follow/unfollow (10c)</li>
+  <li>Shorts+Blobs:create, get, get feed, follow/unfollow, like/unlike, delete (10d)</li>
+</ul>
+
+<h4 id="versão-5">Versão 5</h4>
+<p>Testa as seguintes funcionalidades (REST):</p>
+<ul>
+  <li>Shorts+Blobs:create, get, get feed, follow/unfollow, like/unlike, delete, delete user (5e)</li>
+  <li>Shorts+Blobs com falhas para o shorts: create, get, get feed, follow/unfollow (7c)</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades (mix servidores REST + GRPC):</p>
+<ul>
+  <li>Shorts+Blobs: create, get, get feed, follow/unfollow, delete (12a)</li>
+  <li>Shorts+Blobs: create, get, get feed, follow/unfollow, delete (12b)</li>
+  <li>Shorts+Blobs: create, get, get feed, follow/unfollow, delete (12c)</li>
+  <li>Shorts+Blobs: create, get, get feed, follow/unfollow, delete (12d)</li>
+  <li>Shorts+Blobs: create, get, get feed, follow/unfollow, delete (12e)</li>
+</ul>
+
+<p>FIX in all tests that use getFeeds and multiple blob servers.</p>
+
+<h4 id="versão-6">Versão 6</h4>
+<p>Testa as seguintes funcionalidades (REST):</p>
+<ul>
+  <li>Users: mix de operações concorrentes (8a)</li>
+  <li>Shorts+Blobs: mix de operações concorrentes (8b)</li>
+  <li>Users+Shorts+Blobs: mix de operações concorrentes (8c)</li>
+  <li>Shorts+Blobs com falhas longas users/shorts (7d)</li>
+</ul>
+
+<p>RETIRADO : Testa as seguintes funcionalidades (GRPC):</p>
+<ul>
+  <li>Shorts+Blobs com falhas para o users: create, get, get feed, follow/unfollow (11a)</li>
+  <li>Shorts+Blobs com falhas para o shorts: create, get, get feed, follow/unfollow (11b)</li>
+  <li>Shorts+Blobs com falhas longas users/shorts (11c)</li>
+</ul>
+
+<h3 id="notas-finais">Notas finais</h3>
+
+<p>O facto dum trabalho passar os testes todos (ou o teste duma funcionalidade) não equivale a que tenha a cotação máxima. 
+Primeiro, devem ter em atenção que os testes apenas estão a testar as funcionalidades indicadas na listagem anterior.
+Segundo, a avaliação do trabalho terá em conta a qualidade do código.</p>
+
+
+      </section>
+      <footer>
+      </footer>
+    </div>
+    <script src="./Trabalho 1 - Tester _ Sistemas Distribuidos 23_24_files/scale.fix.js.transferir"></script>
+    
+  
+
+</body></html>
