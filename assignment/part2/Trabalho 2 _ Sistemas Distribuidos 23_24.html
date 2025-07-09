@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://preguica.github.io/sd2324/praticas2324/trab2/trab2 -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Trabalho 2 | Sistemas Distribuidos 23/24</title>
+<meta name="generator" content="Jekyll v3.9.5">
+<meta property="og:title" content="Trabalho 2">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Sistemas Distribuidos 23/24">
+<meta property="og:description" content="Sistemas Distribuidos 23/24">
+<link rel="canonical" href="https://preguica.github.io/sd2324/praticas2324/trab2/trab2.html">
+<meta property="og:url" content="https://preguica.github.io/sd2324/praticas2324/trab2/trab2.html">
+<meta property="og:site_name" content="Sistemas Distribuidos 23/24">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Trabalho 2">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Sistemas Distribuidos 23/24","headline":"Trabalho 2","url":"https://preguica.github.io/sd2324/praticas2324/trab2/trab2.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="./Trabalho 2 _ Sistemas Distribuidos 23_24_files/style.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <table>
+          <tbody><tr width="auto">
+        <td>
+        <h1><a href="https://preguica.github.io/sd2324/">Sistemas Distribuidos 23/24</a></h1>
+        </td><td width="160pt"> <img src="./Trabalho 2 _ Sistemas Distribuidos 23_24_files/nova.png" width="150" alt="Logo">
+          </td>
+          </tr>
+        </tbody></table>
+
+        <p class="view"><a href="https://preguica.github.io/sd2324/index">Início</a> |
+        <a href="https://preguica.github.io/sd2324/contactos">Contactos</a> |
+        <a href="https://preguica.github.io/sd2324/teoricas2324/index">Teóricas</a> |
+        <a href="https://preguica.github.io/sd2324/praticas2324/index">Práticas</a> |
+        <a href="https://preguica.github.io/sd2324/plano">Plano de aulas</a> |
+        <a href="https://preguica.github.io/sd2324/praticas2324/trab2/trab2">Discord</a>
+        </p>
+
+
+
+      </header>
+      <section>
+
+      <h2 id="trabalho-2">Trabalho 2</h2>
+
+<h4 id="prazos">Prazos</h4>
+<p>2º Trabalho (online - código + formulário):</p>
+<ul>
+  <li>Data de entrega: 1 de junho, 23h59, 1 hora de tolerância.
+Entregas atrasada, no dia seguinte, terão uma penalização de 1 valor.</li>
+</ul>
+
+<p>Form para submissão do trabalho: <a href="https://forms.gle/pXNqxZNNmWfpsCNe8">https://forms.gle/pXNqxZNNmWfpsCNe8</a></p>
+
+<h3 id="objetivo">Objetivo</h3>
+
+<p>O objetivo do segundo trabalho é estender o primeiro trabalho, com as 
+seguintes funcionalidades:</p>
+
+<ul>
+  <li>segurança;</li>
+  <li>interação com serviços externos;</li>
+  <li>tolerância a falhas - vamos implementar a tolerância a falhas no servidor
+de shorts e no servidor de blobs.</li>
+</ul>
+
+<p>O desenho da solução, incluindo a arquitetura e as interfaces dos serviços permanecem 
+idênticas às do primeiro trabalho, salvo as indicações em contrário neste enunciado.</p>
+
+<p>A compatibilidade com as interfaces e operações pré-definidas tem que ser observada.</p>
+
+<h3 id="funcionalidades">Funcionalidades</h3>
+
+<h4 id="segurança-máx-35-valores">Segurança (máx: 3,5 valores)</h4>
+
+<p>O objetivo desta funcionalidade é tornar o sistema seguro, impedindo que elementos 
+não autorizados executem operações no serviço de feeds e serviço de utilizadores.
+Para alcançar este objetivo, a solução deve incluir os seguintes mecanismos:</p>
+
+<ol>
+  <li>utilizar canais seguros, usando TLS, com autenticação do servidor. 
+As operações dos clientes incluem uma password para verificar que o cliente está 
+autorizado a efetuar a operação indicada (esta última parte já se verificava nas 
+interfaces definidas no sistema);</li>
+  <li>caso existam operações executadas apenas entre os servidores, garantir que 
+estas não podem ser invocadas por 
+um cliente – sugere-se a utilização dum segredo partilhado entre os servidores, 
+o qual pode ser
+passado como parâmtero ao arrancar o programa.</li>
+</ol>
+
+<p><strong>Tests:</strong> TBD.</p>
+
+<h4 id="segurança---controlo-de-acessos-nos-servidores-de-blobs-máx-1-valor">Segurança - controlo de acessos nos servidores de blobs (máx: 1 valor)</h4>
+
+<p>O objetivo desta funcionalidade é garantir que operações não autorizadas não 
+podem ser efetuadas nos servidores de blobs, i.e., que apenas os utilizadores 
+autorizados podem executar operações.</p>
+
+<p>Nesta alternativa permitem-se soluções em que há pedidos adicionais entre os 
+servidores ou em que se usam tokens com duração limitada para codificar as 
+permissões.</p>
+
+<p><strong>NOTA:</strong> O tester enviará nos pedidos efetuados para o servidor de blobs os query 
+parameters que estiverem nos URLs devolvidos no objeto Short devolvido 
+anteriormente. Na versão GRPC, os query parameters serão incluídos no blobid.</p>
+
+<p>Tests: TBD.</p>
+
+<h4 id="interação-com-um-serviço-externo-alternativa-e1--máx-45-valores">Interação com um serviço externo (alternativa E1)  (máx: 4,5 valores)</h4>
+
+<p>O objetivo desta funcionalidade é ter um servidor de blobs que interaja com um 
+serviço externo que disponibilize um serviço REST com autenticação O.Auth para 
+armazenar o conteúdo dos blobs. 
+Sugere-se a utilização do sistema Dropbox (outras opções: Google Drive, etc.).</p>
+
+<p>Para implementação desta funcionalidade sugere-se a utilização da 
+biblioteca <a href="https://github.com/scribejava/scribejava">ScribeJava</a>, como apresentado nas
+aulas práticas.</p>
+
+<p><strong>NOTA:</strong> Apenas é necessário fazer este servidor com uma interface REST.</p>
+
+<p><strong>NOTA:</strong> Deve ser possível lançar mais do que um destes servidores.</p>
+
+<p><strong>NOTA:</strong> Para que seja possível testar o serviço de forma automática, 
+usando o Tester, é necessário poder indicar ao servidor, quando arranca, 
+que deve iniciar com o estado do serviço externo <em>limpo</em>. 
+Para tal, o Tester passará como primeiro parâmetro do servidor que 
+interage com o serviço externo o valor <strong>true</strong> para indicar que o estado 
+anterior deve ser ignorado. 
+Se o Tester passar o valor <strong>false</strong>, o estado gravado deve ser usado pelo servidor.</p>
+
+<p><strong>NOTA:</strong> Este servidor de Blobs deve expor uma interface REST.</p>
+
+<p><strong>Tests:</strong> TBD.</p>
+
+<h4 id="tolerância-a-falhas---servidor-de-blobs-máx-2-valores">Tolerância a falhas - servidor de blobs (máx: 2 valores)</h4>
+
+<p>Implementar uma solução que permita tolerar falhas em 1 máquina em que esteja a 
+correr um servidor de blobs numa configuração com pelo menos 2 servidores de blobs. 
+A solução deve tolerar a falha de qualquer servidor de blobs e ser desenhada para
+uma configuração em que existe um número elevado de servidores de blobs.</p>
+
+<p>Como propriedade valorativa da solução pode-se considerar manter o nível de tolerância
+a falhas em situações em que servidores de blobs falham.</p>
+
+<p><strong>NOTA:</strong> quando existe replicação de blobs, um short deve devolver no <code class="language-plaintext highlighter-rouge">blobURL</code> uma 
+lista de URLs separado pelo carater <code class="language-plaintext highlighter-rouge">|</code>.</p>
+
+<p>Tests: TBD.</p>
+
+<h4 id="tolerância-a-falhas---servidor-de-shorts-alternativa-d1--máx-7-valores">Tolerância a falhas - servidor de shorts (alternativa D1)  (máx: 7 valores)</h4>
+
+<p>Implementar uma solução que permita tolerar falhas numa máquina em que esteja a correr
+um servidor de shorts, replicando o servidor de shorts com uma solução de replicação 
+de máquina de estados, recorrendo a um sistema de comunicação indireta - e.g. Kafka. 
+A solução deve tolerar a falha de qualquer servidor de shorts.</p>
+
+<p>A solução deve garantir que um cliente lê sempre o estado dum servidor que tem uma 
+versão tão atual quanto a versão do servidor que foi acedido anteriormente. 
+Para tal, o servidor pode adicionar <em>headers</em> às resposta a enviar aos clientes, os 
+quais serão enviados nas próximas operações executadas pelo mesmo cliente (o Tester
+reenviará todos os headers começados em <strong>X-SHORTS</strong>).</p>
+
+<p><strong>NOTA:</strong> Este servidor deve expor uma interface REST.</p>
+
+<p><strong>Tests:</strong> TBD.</p>
+
+<h4 id="tolerância-a-falhas---servidor-de-shorts-alternativa-d2a--máx-6-valores">Tolerância a falhas - servidor de shorts (alternativa D2a)  (máx: 6 valores)</h4>
+
+<p>Implementar uma solução que permita tolerar falhas numa máquina em que esteja a correr
+um servidor de shorts, replicando o servidor de shorts com uma solução de replicação 
+de máquina de estados, implementando o protocolo primário/secundário. 
+A solução deve tolerar a falha de qualquer servidor; no caso da falha do servidor 
+primário, o sistema deve garantir que continua a ser possível fazer leituras, 
+mas não necessita permitir a execução de escritas.</p>
+
+<p>A solução deve garantir que um cliente lê sempre o estado dum servidor que tem uma 
+versão tão atual quanto a versão do servidor que foi acedido anteriormente. 
+Para tal, o servidor pode adicionar <em>headers</em> às resposta a enviar aos clientes, os 
+quais serão enviados nas próximas operações executadas pelo mesmo cliente (o Tester
+reenviará todos os headers começados em <strong>X-SHORTS</strong>).</p>
+
+<p><strong>Nota:</strong> O programa deve suportar a falha de 1 servidor, estando os protocolos 
+implementados configurados para tal.</p>
+
+<p><strong>NOTA:</strong> Este servidor deve expor uma interface REST.</p>
+
+<p><strong>Tests:</strong> TBD.</p>
+
+<h4 id="tolerância-a-falhas---servidor-de-shorts-alternativa-d2b--máx-9-valores">Tolerância a falhas - servidor de shorts (alternativa D2b)  (máx: 9 valores)</h4>
+
+<p>Implementar uma solução que permita tolerar falhas numa máquina em que esteja a correr
+um servidor de shorts dum domínio, replicando o servidor de shorts com uma solução de replicação 
+de máquina de estados, implementando o protocolo primário/secundário. 
+A solução deve tolerar a falha de 
+qualquer servidor, incluindo o servidor primário – para tal, deve eleger um novo 
+primário.</p>
+
+<p>A solução deve garantir que um cliente lê sempre o estado dum servidor que tem uma 
+versão tão atual quanto a versão do servidor que foi acedido anteriormente. 
+Para tal, o servidor pode adicionar <em>headers</em> às resposta a enviar aos clientes, os 
+quais serão enviados nas próximas operações executadas pelo mesmo cliente (o Tester
+reenviará todos os headers começados em <strong>X-SHORTS</strong>).</p>
+
+<p><strong>Nota:</strong> O servidor deve suportar a falha de 1 servidor, estando os protocolos 
+implementados configurados para tal.</p>
+
+<p><strong>NOTA:</strong> Este servidor deve expor uma interface REST.</p>
+
+<p><strong>Tests:</strong> TBD.</p>
+
+<h3 id="fatores-depreciativos">Fatores depreciativos</h3>
+
+<p>O código entregue deverá seguir boas práticas de programação. A repetição 
+desnecessária de código, inclusão de constantes mágicas, o uso de estruturas de 
+dados inadequadas, etc., poderá incorrer numa penalização.
+(max: 2 valores)</p>
+
+<p>Falta de robustez e comportamentos erráticos da solução são motivo para penalização.</p>
+
+<p><strong>NOTA:</strong> A solução deve continuar a contemplar as falhas temporárias dos canais de comunicação.</p>
+
+<h2 id="execução">Execução</h2>
+<p>O trabalho pode ser executado em grupo, de 1 ou 2 alunos.
+Os alunos do mesmo grupo não precisam de pertencer ao mesmo turno prático, embora 
+tal seja fortemente recomendado.</p>
+
+<p>Os grupos neste segundo trabalho podem ser diferentes do primeiro trabalho.</p>
+
+<p>Como base deste segundo trabalho, os alunos podem usar a sua implementação do 
+primeiro trabalho ou a implementação disponível no seguinte link, fornecida
+como tal:</p>
+
+<p><a href="https://github.com/smduarte/sd2324-proj">https://github.com/smduarte/sd2324-proj</a></p>
+
+<h2 id="avaliação">Avaliação</h2>
+<p>A avaliação do trabalho terá em conta os seguintes critérios:</p>
+
+<ul>
+  <li>Funcionalidades desenvolvidas e a sua conformidade com a especificação, tendo como
+base os resultados da bateria de testes automáticos;</li>
+  <li>Qualidade da solução;</li>
+  <li>Qualidade do código desenvolvido.</li>
+</ul>
+
+<p>A classificação final do aluno é individual e será menor ou igual à classificação 
+do trabalho, em função da discussão do
+trabalho, a realizar durante a seguir à entrega do trabalho.</p>
+
+<h2 id="bateria-de-testes">Bateria de testes</h2>
+
+<p>TBA</p>
+
+<!---
+A bateria de testes destinada a verificar a conformidade da solução com a 
+especificação está disponível em 
+[https://preguica.github.io/sd2223/praticas2223/trab2/tester](https://preguica.github.io/sd2223/praticas2223/trab2/tester]).
+
+De notar que passar os testes não garante que o trabalho está correto, dado que não
+se podem testar todas as situações.
+-->
+
+<h1 id="ambiente-de-desenvolvimento">Ambiente de desenvolvimento</h1>
+
+<p>Todo o material de apoio fornecido pressupõe que o desenvolvimento será em ambiente 
+Linux e Java 17.
+A validação do trabalho por via da bateria de testes automática fará uso de tecnologia 
+Docker.</p>
+
+<h1 id="histórico-de-alterações">Histórico de alterações</h1>
+
+<h2 id="27424">27/4/24</h2>
+
+<h3 id="enunciado">Enunciado</h3>
+<p>Versão inicial.</p>
+
+
+
+      </section>
+      <footer>
+      </footer>
+    </div>
+    <script src="./Trabalho 2 _ Sistemas Distribuidos 23_24_files/scale.fix.js.transferir"></script>
+    
+  
+
+</body></html>

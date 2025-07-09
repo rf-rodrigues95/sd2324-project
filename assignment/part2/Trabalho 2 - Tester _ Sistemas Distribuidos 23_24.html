@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://preguica.github.io/sd2324/praticas2324/trab2/tester -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Trabalho 2 - Tester | Sistemas Distribuidos 23/24</title>
+<meta name="generator" content="Jekyll v3.9.5">
+<meta property="og:title" content="Trabalho 2 - Tester">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Sistemas Distribuidos 23/24">
+<meta property="og:description" content="Sistemas Distribuidos 23/24">
+<link rel="canonical" href="https://preguica.github.io/sd2324/praticas2324/trab2/tester.html">
+<meta property="og:url" content="https://preguica.github.io/sd2324/praticas2324/trab2/tester.html">
+<meta property="og:site_name" content="Sistemas Distribuidos 23/24">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Trabalho 2 - Tester">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Sistemas Distribuidos 23/24","headline":"Trabalho 2 - Tester","url":"https://preguica.github.io/sd2324/praticas2324/trab2/tester.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="./Trabalho 2 - Tester _ Sistemas Distribuidos 23_24_files/style.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <table>
+          <tbody><tr width="auto">
+        <td>
+        <h1><a href="https://preguica.github.io/sd2324/">Sistemas Distribuidos 23/24</a></h1>
+        </td><td width="160pt"> <img src="./Trabalho 2 - Tester _ Sistemas Distribuidos 23_24_files/nova.png" width="150" alt="Logo">
+          </td>
+          </tr>
+        </tbody></table>
+
+        <p class="view"><a href="https://preguica.github.io/sd2324/index">Início</a> |
+        <a href="https://preguica.github.io/sd2324/contactos">Contactos</a> |
+        <a href="https://preguica.github.io/sd2324/teoricas2324/index">Teóricas</a> |
+        <a href="https://preguica.github.io/sd2324/praticas2324/index">Práticas</a> |
+        <a href="https://preguica.github.io/sd2324/plano">Plano de aulas</a> |
+        <a href="https://preguica.github.io/sd2324/praticas2324/trab2/tester">Discord</a>
+        </p>
+
+
+
+      </header>
+      <section>
+
+      <h2 id="trabalho-2---tester">Trabalho 2 - <em>Tester</em></h2>
+
+<p>O <em>Tester</em> tem como objetivo permitir o teste do trabalho prático 2, de forma sistemática e uniforme para todos os grupos.
+Os alunos poderão testar a correção da sua implementação, usando o <em>Tester</em>.</p>
+
+<p>Para executar o tester, os alunos com sistemas operativos Linux ou MacOS devem usar o script 
+<a href="https://raw.githubusercontent.com/preguica/sd2324-proj-api/main/test-sd-tp2.sh">test-sd-tp2.sh</a>,
+enquanto que os alunos com Windows devem usar o script <a href="https://raw.githubusercontent.com/preguica/sd2324-proj-api/main/test-sd-tp2.bat">test-sd-tp2.bat</a>.</p>
+
+<p><strong>Nota</strong>: Todos os ficheiros mencionados estão dispopíveis em:
+<a href="https://github.com/preguica/sd2324-proj-api">https://github.com/preguica/sd2324-proj-api</a>.</p>
+
+<h3 id="preparação">Preparação</h3>
+
+<p>Antes de executar o tester e criar a imagem docker, devem adicionar e atualizar o 
+fichero <a href="https://github.com/preguica/sd2324-proj-api/blob/main/shorts.props">shorts.props</a> 
+na raiz do vosso projeto com a informação correta:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USERS_REST_SERVER_MAINCLASS=classe do servidor Users REST (e.g. sd2324.tp1.server.RESTUsersServer)
+USERS_REST_PORT=porto do servidor Users REST (e.g. 8080)
+USERS_REST_EXTRA_ARGS=parâmetro adicional a passar ao servidor Users REST, se algum
+SHORTS_REST_SERVER_MAINCLASS=classe do servidor Shorts REST 
+SHORTS_REST_PORT=porto do servidor Shorts REST
+SHORTS_REST_EXTRA_ARGS=parâmetro adicional a passar ao servidor Shorts REST, se algum
+BLOBS_REST_SERVER_MAINCLASS=classe do servidor Blobs REST 
+BLOBS_REST_PORT=porto do servidor Blobs REST
+BLOBS_REST_EXTRA_ARGS=parâmetro adicional a passar ao servidor Blobs REST, se algum
+USERS_GRPC_SERVER_MAINCLASS=classe do servidor Users GPRC 
+USERS_GRPC_PORT=porto do servidor Users GRPC
+USERS_GRPC_EXTRA_ARGS=parâmetro adicional a passar ao servidor Users GRPC, se algum
+SHORTS_GRPC_SERVER_MAINCLASS=classe do servidor Shorts GRPC 
+SHORTS_GRPC_PORT=porto do servidor Shorts GRPC
+SHORTS_GRPC_EXTRA_ARGS=parâmetro adicional a passar ao servidor Shorts GRPC, se algum
+BLOBS_GRPC_SERVER_MAINCLASS=classe do servidor Bblobs GRPC 
+BLOBS_GRPC_PORT=porto do servidor Blobs GRPC
+BLOBS_GRPC_EXTRA_ARGS=parâmetro adicional a passar ao servidor Blobs GRPC, se algum
+DISCOVERY_MULTICAST_IP=endereço multicast para descoberta (e.g. 226.226.226.226)
+DISCOVERY_MULTICAST_PORT=porto para descoberta (e.g. 2266)
+BLOBS_PROXY_SERVER_MAINCLASS=classe do servidor Proxy Blobs REST 
+BLOBS_PROXY_PORT=porto do servidor Proxy Blobs REST
+BLOBS_PROXY_EXTRA_ARGS=parâmetro adicional a passar ao servidor Proxy Blobs REST, se algum
+SHORTS_REP_SERVER_MAINCLASS=classe do servidor Shorts REST, com replicação 
+SHORTS_REP_PORT=porto do servidor Shorts REST, com replicação
+SHORTS_REP_EXTRA_ARGS_FIRST=parâmetro adicional a passar ao primeiro servidor Shorts REST replicado, se algum
+SHORTS_REP_EXTRA_ARGS_OTHER=parâmetro adicional a passar aos outros servidores Shorts REST replicados, se algum
+USERS_KEYSTORES=keystores para o servidor user (e.g. users-ourorg0,users.jks,users0pwd)
+SHORTS_KEYSTORES=keystores para os servidores shorts - 1 por cada servidor (e.g. shorts0-ourorg0,shorts0-0.jks,shorts0-0pwd shorts1-ourorg0,shorts1-0.jks,shorts1-0pwd ...)
+BLOBS_KEYSTORES=keystores para os servidores blobs - 1 por cada servidor (e.g. blobs0-ourorg0,blobs0-0.jks,blobs0-0pwd blobs1-ourorg0,blobs1-0.jks,blobs1-0pwd ...)
+CLIENT_TRUSTSTORE=nome do ficheiro com o truststore para os clienes (e.g. client-truststore.jks)
+CLIENT_TRUSTSTORE_PWD=password do trustore
+</code></pre></div></div>
+
+<p>Enquanto não tiverem alguma parte implementada, devem deixar as propriedades respetivas sem nenhum valor, mas não as devem apagar.</p>
+
+<p>Devem adicionar ou atualizar o ficheiro <strong>Dockerfile</strong> presente na raiz do vosso projeto
+com o conteúdo presente no seguinte link: <a href="https://github.com/preguica/sd2324-proj-api/blob/main/Dockerfile">Dockerfile</a>.</p>
+
+<p><strong>Sempre que alteram o vosso trabalho (incluindo o ficheiro shorts.props)</strong> devem criar 
+uma nova imagem Docker do vosso trabalho (usando o projeto Maven disponibilizado, 
+tal consiste em executar: <code class="language-plaintext highlighter-rouge">mvn clean compile assembly:single docker:build</code>).</p>
+
+<h3 id="keystores">Keystores</h3>
+
+<p>Devem criar um keystore para cada servidor que poderá ser criado. Assim, devem criar keystores para os
+servidores:</p>
+<ul>
+  <li>users0-ourorg</li>
+  <li>shorts0-ourorg</li>
+  <li>shorts1-ourorg</li>
+  <li>shorts2-ourorg</li>
+  <li>blobs0-ourorg</li>
+  <li>blobs1-ourorg</li>
+  <li>blobs2-ourorg</li>
+  <li>blobs3-ourorg</li>
+</ul>
+
+<p>O certificado criado para cada servidor deve ter como DN o nome do servidor. Adicionalmente,
+deve ter o “Subject Alternative Name” associado ao nome de DNS do servidor.</p>
+
+<p>Isto pode ser feito usando a opção <code class="language-plaintext highlighter-rouge">keytool ... -ext SAN=dns:users0-ourorg0</code>. 
+Com esta opção e adicionando o certificado à trustore do cliente,
+o cliente conseguirá validar o certificado.</p>
+
+<p><strong>IMPORTANTE</strong></p>
+
+<p>Além do indicado acima, devem usados URIs de servidor com o <em>hostname</em> e não o endereço IP.
+Na solução dada, na geração do URIs dos servidores REST e SOAP (anunciados via Descoberta) 
+é, portanto, necessário substituir IP.hostAddress() por IP.hostname() (que terá de ser
+programado e adicionado à classe utils.IP).</p>
+
+<p>Sem esta alteração, irão aparecer erros do estilo:</p>
+
+<p><code class="language-plaintext highlighter-rouge">No subject alternative names matching IP address 172.19.0.4 found</code></p>
+
+<p><strong>NOTA:</strong> Devem alterar o Dockerfile para copiar as keystores para a imagem docker. Para tal podem 
+usar o comando <a href="https://docs.docker.com/engine/reference/builder/#copy">COPY</a> ou <a href="https://docs.docker.com/engine/reference/builder/#add">ADD</a>.</p>
+
+<h3 id="execução-dos-testes">Execução dos testes</h3>
+
+<p>Para executar o <em>Tester</em>, basta executar o seguinte comando, 
+usando o nome da imagem do vosso trabalho (<strong>substituir sd2324-tp2-xxxxx-yyyyy pelo 
+nome da vossa imagem</strong>):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh test-sd-tp2.sh -image sd2324-tp2-xxxxx-yyyyy
+</code></pre></div></div>
+
+<p><em>NOTA:</em> há uma secção sobre problemas com a execução deste comando mais tarde neste documento.</p>
+
+<p>Para mais informação, ver a página do Tester do trabalho 1.</p>
+
+<h3 id="outras-opções-do-tester">Outras opções do <em>Tester</em></h3>
+
+<p>O <em>Tester</em> possui algumas opções que podem ser especificadas ao corrê-lo, que modificam o seu comportamento.</p>
+
+<ul>
+  <li>
+    <p><strong>-test &lt;num&gt;</strong> : Permite omitir a execução de alguns testes. 
+Por exemplo, se passarem o valor <strong>-test 102b</strong>, os testes começarão no 
+teste 102b. Esta opção é útil quando já verificaram que o vosso trabalho 
+funciona corretamente até um dado teste e estão a corrigir erros num 
+teste específico.</p>
+  </li>
+  <li>
+    <p><strong>-sleep &lt;seconds&gt;</strong> : Permite diminuir o tempo de espera entre serem 
+lançadas os containers com o vosso trabalho e iniciar a execução dos 
+testes. Podem ajustar este valor consoante a capacidade do vosso 
+computador e as operações que estejam a fazer na fase de inicialização.</p>
+  </li>
+  <li>
+    <p><strong>-log OFF|ALL|FINE|FINEST</strong> : Permite controlar o nível de mensagens 
+gerado pelo programa. Por exemplo, ao usarem a opção <strong>-log FINE</strong>, o 
+programa vai indicar todas as operações que está a fazer ao vosso sistema, 
+indicando as mensagens recebidas e as esperadas, como se apresenta na 
+imagem seguinte:</p>
+  </li>
+</ul>
+
+<p><img src="./Trabalho 2 - Tester _ Sistemas Distribuidos 23_24_files/tester-rundetail.png" alt="Imagen com debug a FINE"></p>
+
+<ul>
+  <li>
+    <p><strong>-textsize &lt;len&gt;</strong> : Permite indicar a dimensão máxima do texto das 
+mensagens criadas.</p>
+  </li>
+  <li>
+    <p><strong>-timeout seconds</strong> : Permite indicar os timeouts usados no vosso programa 
+nos clientes de REST e GRPC (a indicação destes valores é importante para que 
+a verificação do comportamento na presença de falhas funcione corretamente) – 
+valor por omissão 10 segundos equivalente a -timeout 10.</p>
+  </li>
+  <li>
+    <p><strong>-proxy seconds</strong> : Permite indicar o tempo de timeout a usar nos testes
+ com o servidor externo – 
+valor por omissão 10 segundos equivalente a -proxytimeout 10.</p>
+  </li>
+  <li>
+    <p><strong>-dump true|false</strong> : Permite omitir as mensagens de erro dos servidor em caso 
+de erro, usando <strong>-dump false</strong>.</p>
+  </li>
+  <li>
+    <p><strong>-allProps true|false</strong> : Ignora verificação se todas as proriedades estão definidas.</p>
+  </li>
+  <li>
+    <p><strong>-interoptime miliseconds</strong> : Tempo entre duas operações sucessivas no proxy – 
+use este valor caso tenha erros de demaidos pedidos, como formar de reduzir o número de pedidos
+por segundo efetuados ao servidor.</p>
+  </li>
+  <li>
+    <p><strong>-services true|false</strong> : Usando <strong>-services true</strong>, os serviços externos (Kafka, Zookeeper)
+são lançados em todos os testes.</p>
+  </li>
+  <li>
+    <p><strong>-kafkasleep seconds</strong> : Tempo de espera entre lançar os serviços externos - Kafka, Zoopkeeper - 
+e lançar os servidores - valor por omissão 10 segundos.</p>
+  </li>
+  <li>
+    <p><strong>-failsleep seconds</strong> : Tempo de espera para descobrir que um servidor falhou - valor 
+por omissão 15 segundos.</p>
+  </li>
+  <li>
+    <p><strong>-skip true|false</strong> : Com <strong>-skip true</strong> não verifica as keystores.</p>
+  </li>
+</ul>
+
+<h3 id="códigos-de-erro">Códigos de erro</h3>
+
+<p>Os códigos de erro que os vossos servidores devolvem devem estar de acordo
+com os comentários das respetivas interfaces, disponíveis em: 
+<a href="https://github.com/preguica/sd2324-proj-api">https://github.com/preguica/sd2324-proj-api</a>.</p>
+
+<h3 id="versões">Versões</h3>
+
+<p>As versões do <em>Tester</em> são incrementais., i.e., a versão N do <em>Tester</em> executará todos os testes das versões anteriores.
+Nesta secção indicam-se as funcionalidades testadas por cada versão.</p>
+
+<h4 id="versão-1">Versão 1</h4>
+<p>Testa as seguintes funcionalidades com servidores com TLS:</p>
+<ul>
+  <li>Descoberta: 101</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades em REST, usando TLS:</p>
+<ul>
+  <li>Users / Shorts / Blobs: 102</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades em GRPC, usando TLS:</p>
+<ul>
+  <li>Users / Shorts / Blobs: 103</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades em mix REST e GRPC, usando TLS:</p>
+<ul>
+  <li>Users / Shorts / Blobs: 104</li>
+</ul>
+
+<h4 id="versão-23">Versão 2/3</h4>
+<p>Testa as seguintes funcionalidades no proxy REST, usando TLS:</p>
+<ul>
+  <li>Mix de operações (105a).</li>
+  <li>Mix de operações + remoção de utilizador (105b).</li>
+  <li>Mix de operaçõecom falha e recuperação do servidor (105c).</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades no proxy REST + blob REST, usando TLS:</p>
+<ul>
+  <li>Mix de operações (105d).</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades em REST, usando TLS:</p>
+<ul>
+  <li>Mix de operações + falha e recuperação de servidor (106a)</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades em REST com múltiplos servidores de blobs, usando TLS:</p>
+<ul>
+  <li>Mix de operações + verifica replicação em duas réplicas e balanceamento (107a)</li>
+  <li>Mix de operações + verifica replicação em duas réplicas após falha (107b)</li>
+  <li>Mix de operações + verifica replicação em duas réplicas após falha (107c)</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades em REST com servidores short replicados, sem falhas, usando TLS:</p>
+<ul>
+  <li>Mix de operações simples (108a)</li>
+  <li>Mix de operações (108b)</li>
+  <li>Mix de operações + remove user (108c)</li>
+</ul>
+
+<p>Testa as seguintes funcionalidades em REST com servidores short replicados, usando TLS:</p>
+<ul>
+  <li>Mix de operações com falha de comunicação com réplica 1 (109a)</li>
+  <li>Mix de operações com falha de comunicação com réplica 2 (109b)</li>
+  <li>Mix de operações com falha de réplica 1 sem recuperação (110a)</li>
+  <li>Mix de operações com falha de réplica 2 sem recuperação (110b)</li>
+  <li>Mix de operações com falha de réplica 1 com recuperação (110c)</li>
+  <li>Mix de operações com falha de réplica 2 com recuperação (110d)</li>
+  <li>Mix de operações com falha de réplica 0 sem recuperação (110e)</li>
+  <li>Mix de operações com falha de réplica 0 com recuperação (110f)</li>
+</ul>
+
+<h4 id="versão-4">Versão 4</h4>
+<p>Testa as seguintes funcionalidades em REST, usando TLS:</p>
+<ul>
+  <li>Mix de operações para verificar validade dos tokens, sem replicação (111a)</li>
+  <li>Mix de operações para verificar validade dos tokens, com replicação em blobs (111b)</li>
+  <li>Mix de operações para verificar validade dos tokens, com replicação em shorts e blobs (111c)</li>
+  <li>Mix de operações concorrentes com replicação de shorts, sem falhas (112a)</li>
+  <li>Mix de operações concorrentes com replicação de shorts, com falha em réplica secundária (112b)</li>
+  <li>Mix de operações concorrentes com replicação de shorts, sem falha em réplica primária (112c)</li>
+</ul>
+
+<h3 id="notas-finais">Notas finais</h3>
+
+<p>O facto dum trabalho passar os testes todos (ou o teste duma funcionalidade) não equivale a que tenha a cotação máxima. 
+Primeiro, devem ter em atenção que os testes apenas estão a testar as funcionalidades indicadas na listagem anterior.
+Segundo, a avaliação do trabalho terá em conta a qualidade do código.</p>
+
+
+      </section>
+      <footer>
+      </footer>
+    </div>
+    <script src="./Trabalho 2 - Tester _ Sistemas Distribuidos 23_24_files/scale.fix.js.transferir"></script>
+    
+  
+
+</body></html>
