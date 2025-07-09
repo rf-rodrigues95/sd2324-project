@@ -4,7 +4,7 @@
 
 # TuKano - Part 1 (sd2324-tp1)
 
-[Project Specification (trab1-2324.pdf)](assignment/part1/trab1-2324.pdf)
+[Project Specification (trab1-2324.pdf)](./assignment/part1/trab1-2324.pdf)
 
 In the folder `assignment/part1/` you will also find a similar description as the one linked above, as well as the description of the test battery (tester) used for evaluation.
 
