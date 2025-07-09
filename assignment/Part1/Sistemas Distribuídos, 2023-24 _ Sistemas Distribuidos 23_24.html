@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://preguica.github.io/sd2324/praticas2324/trab1/trab1 -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Sistemas Distribuídos, 2023-24 | Sistemas Distribuidos 23/24</title>
+<meta name="generator" content="Jekyll v3.9.5">
+<meta property="og:title" content="Sistemas Distribuídos, 2023-24">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Sistemas Distribuidos 23/24">
+<meta property="og:description" content="Sistemas Distribuidos 23/24">
+<link rel="canonical" href="https://preguica.github.io/sd2324/praticas2324/trab1/trab1.html">
+<meta property="og:url" content="https://preguica.github.io/sd2324/praticas2324/trab1/trab1.html">
+<meta property="og:site_name" content="Sistemas Distribuidos 23/24">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Sistemas Distribuídos, 2023-24">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Sistemas Distribuidos 23/24","headline":"Sistemas Distribuídos, 2023-24","url":"https://preguica.github.io/sd2324/praticas2324/trab1/trab1.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="./Sistemas Distribuídos, 2023-24 _ Sistemas Distribuidos 23_24_files/style.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <table>
+          <tbody><tr width="auto">
+        <td>
+        <h1><a href="https://preguica.github.io/sd2324/">Sistemas Distribuidos 23/24</a></h1>
+        </td><td width="160pt"> <img src="./Sistemas Distribuídos, 2023-24 _ Sistemas Distribuidos 23_24_files/nova.png" width="150" alt="Logo">
+          </td>
+          </tr>
+        </tbody></table>
+
+        <p class="view"><a href="https://preguica.github.io/sd2324/index">Início</a> |
+        <a href="https://preguica.github.io/sd2324/contactos">Contactos</a> |
+        <a href="https://preguica.github.io/sd2324/teoricas2324/index">Teóricas</a> |
+        <a href="https://preguica.github.io/sd2324/praticas2324/index">Práticas</a> |
+        <a href="https://preguica.github.io/sd2324/plano">Plano de aulas</a> |
+        <a href="https://preguica.github.io/sd2324/praticas2324/trab1/trab1">Discord</a>
+        </p>
+
+
+
+      </header>
+      <section>
+
+      <h1 id="sistemas-distribuídos-2023-24">Sistemas Distribuídos, 2023-24</h1>
+<h2 id="trabalho-1">Trabalho 1</h2>
+
+<h4 id="prazos">Prazos</h4>
+<ul>
+  <li>1º Trabalho - 20 de abril, 23h59, 15 minutos de tolerância (online - código + relatório/formulário)</li>
+</ul>
+
+<h3 id="objetivo">Objetivo</h3>
+
+<p>O objetivo do trabalho é desenvolver uma rede social inspirada no TikTok, nomeada TuKano.
+Os utilizadores desta rede social, podem publicar pequenos vídeos, designados <em>shorts.
+Cada utilizador pode seguir um conjunto de outros utilizadores, e tem um *feed</em> que
+consiste numa sequência de <em>shorts</em> dos utilizadores que segue, ordenados por data de criação, do mais recente para o mais antigo.</p>
+
+<h3 id="arquitetura">Arquitetura</h3>
+
+<p>O sistema será composto por um conjunto de servidores, conforme apresentado na figura seguinte.</p>
+
+<p><img src="./Sistemas Distribuídos, 2023-24 _ Sistemas Distribuidos 23_24_files/architecture.png" width="500"></p>
+
+<p>A gestão de utilizadores será efetuada pelo <strong>serviço Users</strong>, com recurso às seguinte operações:</p>
+
+<ul>
+  <li>criação de um utilizador;</li>
+  <li>obtenção da informação associada a um utilizador existente;</li>
+  <li>modificar a informação associada a um utilizador;</li>
+  <li>remoção de um utilizador.</li>
+</ul>
+
+<p>O armazenamento dos conteúdos será efetuado pelo <strong>serviço Blobs</strong>, com recurso às seguintes 
+operações acessíveis ao cliente:</p>
+
+<ul>
+  <li><em>upload</em> do vídeo associado a um <em>short</em>.</li>
+  <li><em>download</em> do vídeo associado a um <em>short</em>.</li>
+</ul>
+
+<p>A gestão dos <em>shorts</em> será efetuada pelo <strong>serviço Shorts</strong>, com recurso às seguintes operações:</p>
+
+<ul>
+  <li>criar um <em>short</em>, recebendo o url onde deve ser guardado - o serviço de 
+Blobs deve validar no upload se o URL foi criado pelo serviço de <em>Shorts</em>;</li>
+  <li>apagar um <em>short</em> criado pelo próprio utilizador;</li>
+  <li>aceder a um <em>short</em> (tendo o identificado único do short, todos os utilizadores
+têm acess a todos os <em>shorts</em>;</li>
+  <li>seguir / deixar de seguir um utilizador;</li>
+  <li>ler o <em>feed</em> de shorts de um utilizador - inclui os <em>shorts</em> dos utilizadores que segue
+ordenado do mais recente para o mais antigo;</li>
+  <li>adicionar/remover <em>like</em> de um short (o serviço mantém um contador de <em>likes</em> de cada <em>short</em>).</li>
+</ul>
+
+<p>A informação mantida nos servidores <strong>Users</strong> e <strong>Shorts</strong> será guardada numa base de 
+dados local - será usado uma base de dados SQL com o framework Hybernate. 
+A informação mantida nos servidores de <strong>Blobs</strong> deverá ser guardada em ficheiros no
+sistema de ficheiros locais.</p>
+
+<h2 id="interfaces-dos-serviços">Interfaces dos serviços</h2>
+
+<p>Os servidores do sistema serão desenvolvidos por recurso a tecnologia REST (JAX-RS) e
+(opcionalmente) gRPC.</p>
+
+<p>Para garantir a inter-operabilidade com a bateria de testes a disponibilizar,
+os serviços terão que ser implementados respeitando interfaces de programação pré-definidas e os
+efeitos esperados das suas operações (<strong>incluindo resultados e erros</strong>).</p>
+
+<p>O código das interface está disponível na seguinte URL <a href="https://github.com/preguica/sd2324-proj-api">https://github.com/preguica/sd2324-proj-api</a>.
+O código tem documentação de como as operações devem ser invocadas e qual o resultado da sua invocação (incluindo erros a enviar).</p>
+
+<p>O zip contém um projeto Maven, que sugerimos que seja usado como base para a realização do trabalho.</p>
+
+<p>Nota: As interfaces podem ser modificadas apenas introduzindo novas operações, ou através de parâmetros opcionais nas operações pré-existentes.</p>
+
+<p>Nota: As interfaces definidas, com os pedidos a serem efetuados sobre canais não cifrados, não são seguras. Os aspetos de segurança serão endereçados no segundo trabalho.</p>
+
+<h2 id="auto-configuração">Auto-configuração</h2>
+
+<p>O servidor de Blobs, ao ser lançado, recebe um parâmetro (<code class="language-plaintext highlighter-rouge">args[0]</code>) que é um número inteiro, 
+diferente para cada servidor.</p>
+
+<p>Os servidores deverão ser capazes de se autoconfigurarem, não podendo depender de 
+endereços IP fixos.
+Para tal, deverão implementar um mecanismo de descoberta baseado em anúncios periódicos 
+(por parte dos servidores) e comunicação IP multicast.</p>
+
+<p>Este mecanismo também será o meio utilizado pela bateria de testes para descobrir as instâncias 
+dos servidores presentes na rede local.</p>
+
+<p>O protocolo de descoberta consiste em enviar periodicamente para o endereço IP multicast e porto 
+pré-acordados, uma mensagem, contendo uma string, com o seguinte formato:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;serviço&gt;&lt;tab&gt;&lt;uri-do-servidor&gt;
+</code></pre></div></div>
+
+<p>O <code class="language-plaintext highlighter-rouge">&lt;uri-do-servidor&gt;</code> deve terminar com /rest para indicar um servidor REST e /grpc para um servidor gRPC.
+O <code class="language-plaintext highlighter-rouge">&lt;serviço&gt;</code> pode ser <code class="language-plaintext highlighter-rouge">users</code>, <code class="language-plaintext highlighter-rouge">blobs</code> ou <code class="language-plaintext highlighter-rouge">shorts</code>.</p>
+
+<h2 id="requisitos-da-solução">Requisitos da solução</h2>
+
+<p>O foco deste primeiro trabalho será centrado nas tecnologias de Invocação Remota na Web e na Distribuição.</p>
+
+<p>A solução não precisa de tolerar falhas de componentes. As únicas falhas a contemplar são as falhas
+(temporárias) de comunicação. (Não há, assim, necessidade de introduzir replicação de componentes.)</p>
+
+<p>A compatibilidade com as interfaces e operações pré-definidas tem que ser observada.
+No entanto, poderá ser necessário adicionar mais operações para atender a alguns dos requisitos da solução.</p>
+
+<h3 id="requisitos-mínimos-max-8-valores">Requisitos mínimos (max: 8 valores)</h3>
+
+<ul>
+  <li>API REST - Servidores versão REST funcionais, com todas as operações a executarem corretamente
+com apenas um servidor de Blobs;</li>
+  <li>Auto-configuração - A descoberta por multicast dos servidores funciona corretamente;</li>
+</ul>
+
+<p><strong>Tests:</strong> TBD.</p>
+
+<h3 id="requisitos-base-max-13-valores">Requisitos base (max: 13 valores)</h3>
+
+<ul>
+  <li>Funcionalidade completa - Servidores REST funcional, com todas as operações a executar 
+corretamente tolerando falhas de comunicação que não excedem 10 segundos.</li>
+  <li>Controlo de concorrência - Os servidores REST funciona corretamente quando vários clientes 
+efetuam pedidos concorrentemente.</li>
+</ul>
+
+<p><strong>Tests:</strong> TBD.</p>
+
+<h3 id="elementos-valorativos-max-20-valores">Elementos valorativos (max: 20 valores)</h3>
+
+<ul>
+  <li>
+    <p>Eficiência do sistema (max: 3 valores) - O sistema deve funcionar de forma eficaz na
+na execução de operações, distribuindo a carga entre servidores de Blobs e garantindo 
+a remoção da informação mesmo em situações em que ocorram falhas (e.g. ao remover um utilizadore,
+devem-se remover os seus shorts e blobs associados mesmo se ocoorer uma falha).
+<strong>Tests:</strong> TBD.</p>
+  </li>
+  <li>
+    <p>gRPC (max: 2 valores) - O sistema funciona com servidores gRPC apenas;
+<strong>Tests:</strong> TBD.</p>
+  </li>
+  <li>
+    <p>REST / gRPC interoperáveis (max: 5 valores; alternativa a gRPC apenas) - O sistema funciona com
+servidores REST e gRPC no mesmo sistema;
+<strong>Tests:</strong> TBD.</p>
+  </li>
+</ul>
+
+<p>Nota: Os elementos valorativos não serão considerados em pleno caso os requisitos base não sejam atingidos de forma satisfatória.
+Não é necessário realizar todos os elementos valorativos para atingir a cotação máxima.</p>
+
+<h3 id="fatores-depreciativos">Fatores depreciativos</h3>
+
+<p>O código entregue deverá seguir boas práticas de programação. A repetição desnecessária de 
+código, inclusão de constantes mágicas, o uso de estruturas de dados inadequadas, etc., 
+poderá incorrer numa penalização.
+(max: 2 valores)</p>
+
+<p>Falta de robustez e comportamentos erráticos da solução são motivo para penalização. 
+(max: variável)</p>
+
+<p>A solução deve contemplar as falhas temporárias dos canais de comunicação.</p>
+
+<h2 id="notas-sobre-insegurança">Notas sobre (in)segurança</h2>
+
+<p>As interfaces definidas, com os pedidos a serem efetuados sobre canais não cifrados, não são seguras.</p>
+
+<p>Os aspetos de segurança serão completados no segundo trabalho.</p>
+
+<h2 id="execução">Execução</h2>
+<p>O trabalho pode ser realizado em grupo de 1 ou 2 alunos.
+Os alunos do mesmo grupo não precisam de pertencer ao mesmo turno prático, embora tal 
+seja fortemente recomendado.</p>
+
+<h2 id="avaliação">Avaliação</h2>
+<p>A avaliação do trabalho terá em conta os seguintes critérios:</p>
+
+<ul>
+  <li>Funcionalidades desenvolvidas e a sua conformidade com a especificação, 
+tendo como base os resultados
+da bateria de testes automáticos;</li>
+  <li>Qualidade da solução;</li>
+  <li>Qualidade do código desenvolvido.</li>
+</ul>
+
+<p>A classificação final do aluno é individual e será menor ou igual à classificação do 
+trabalho, em função dos resultados obtidos na discussão do trabalho, a realizar no dia do 
+segundo teste prático.</p>
+
+<h2 id="bateria-de-testes">Bateria de testes</h2>
+
+<p>A bateria de testes destinada a verificar a conformidade da solução com a especificação 
+está disponível em <a href="https://preguica.github.io/sd2324/praticas2324/trab1/TBA">TBA</a>.</p>
+
+<p>De notar que passar os testes não garante que o trabalho está correto, dado que 
+não se podem testar todas as situações.</p>
+
+<h1 id="ambiente-de-desenvolvimento">Ambiente de desenvolvimento</h1>
+
+<p>Todo o material de apoio fornecido pressupõe que o desenvolvimento será em ambiente Linux e Java 17+.
+A validação do trabalho por via da bateria de testes automática fará uso de tecnologia Docker.</p>
+
+<h1 id="faq">FAQ</h1>
+
+<p>Perguntas frequentes serão adicionadas nesta secção.</p>
+
+<hr>
+<ul>
+  <li>Ao usar o tester, o resultado recebido na chamada a um método é -1. O que se passa?</li>
+</ul>
+
+<p>Se o resultado é -1, tipicamente o que aconteceu foi o servidor não se ter iniciado.</p>
+
+<hr>
+<ul>
+  <li>No GRPC, ao serializar um valor null dá um erro. O que fazer?</li>
+</ul>
+
+<p>A solução que sugerimos é considerar uma string “” como um valor null. Assim, sugerimos
+que na função que transforma um objeto Java GRPC num objeto do tipo que usam no trabalho,
+coloquem o valor a null caso seja a string vazia, como no exemplo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static User GrpcUser_to_User( GrpcUser from )  {
+	return new User( 
+		emptyStringToNull(from.getUserId()), 
+		emptyStringToNull(from.getPassword()), 
+		emptyStringToNull(from.getEmail()), 
+		emptyStringToNull(from.getDisplayName()));
+}
+
+private static String emptyStringToNull( String s ) {
+	return s == null || s.length() == 0 ? null: s;
+}
+</code></pre></div></div>
+<p>A alternativa seria usar funções para verificar se os campos opcionais foram transmitidos.</p>
+
+<hr>
+<ul>
+  <li>Os testes envolvendo pedidos concorrentes falham com excepções tipo:
+<code class="language-plaintext highlighter-rouge">org.hibernate.HibernateException: The internal connection pool has reached its maximum size and no connection is currently available</code></li>
+</ul>
+
+<p>O ficheiro de configuração Hibernate (hibernate.cfg.xml) necessita ser atualizado ajustando o valor da propriedade <em>connection.pool_size</em> para que possam ser realizados pedidos concorrentes:</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;property name="connection.pool_size"&gt;64&lt;/property&gt;</code>
+		`</p>
+
+<h1 id="histórico-de-alterações">Histórico de alterações</h1>
+
+<p>17-Mar: versão 0.1</p>
+
+
+      </section>
+      <footer>
+      </footer>
+    </div>
+    <script src="./Sistemas Distribuídos, 2023-24 _ Sistemas Distribuidos 23_24_files/scale.fix.js.transferir"></script>
+    
+  
+
+</body></html>
