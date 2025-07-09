@@ -1,7 +1,6 @@
 # Distributed Systems
-Distributed Systems Project
-Final Grade: 17.3 (GPA of part 1 and 2)
-Author: Ricardo Rodrigues (rf-rodrigues95)
+**Final Grade:** 17.3 (GPA of part 1 and 2)
+**Author:** Ricardo Rodrigues (rf-rodrigues95)
 
 # TuKano - Part 1
 ## Overview
