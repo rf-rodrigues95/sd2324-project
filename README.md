@@ -1,4 +1,4 @@
-# sd2324-project
+# Distributed Systems
 Distributed Systems Project
 Final Grade: 17.3
 Author: Ricardo Rodrigues 66257
