@@ -6,6 +6,8 @@
 
 [Project Specification (trab1-2324.pdf)](assignment/part1/trab1-2324.pdf)
 
+In the folder `assignment/part1/` you will also find a similar description as the one linked above, as well as the description of the test battery (tester) used for evaluation.
+
 **sd2324-tp1** includes the API and a set of files that should be used in project 1.
 
 * ```test-sd-tp1.bat``` / ```test-sd-tp1.sh``` :  script files for running the project in Windows and Linux/Mac
