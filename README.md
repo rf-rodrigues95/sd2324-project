@@ -12,7 +12,6 @@
 * ```hibernate.cfg.xml``` : auxiliary file for using Hibernate
 * ```pom.xml``` : maven file for creating the project
 
-
 ## Overview
 TuKano is a distributed social media platform inspired by TikTok, designed and implemented as part of the Distributed Systems course. The system is structured around three core services — Users, Shorts, and Blobs — each running independently and communicating over the network. These services expose RESTful APIs using JAX-RS, and gRPC, to allow client interactions and inter-service coordination. The architecture supports decentralized operation through multicast-based service discovery, removing any reliance on hardcoded IPs and enabling dynamic server detection on the local network.
 
